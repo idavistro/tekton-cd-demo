@@ -50,19 +50,19 @@ spec:
       value: spring-petclinic
     - name: deleteExisting
       value: "true"
-  - name: unit-tests
-    taskRef:
-      name: maven
-    runAfter:
-      - source-clone
-    workspaces:
-    - name: source
-      workspace: workspace
-    - name: maven-settings
-      workspace: maven-settings
-    params:
-    - name: GOALS
-      value: ["package", "-f", "spring-petclinic"]
+#  - name: unit-tests
+#    taskRef:
+#      name: maven
+#    runAfter:
+#      - source-clone
+#    workspaces:
+#    - name: source
+#      workspace: workspace
+#    - name: maven-settings
+#      workspace: maven-settings
+#    params:
+#    - name: GOALS
+#      value: ["package", "-f", "spring-petclinic"]
   - name: code-analysis
     taskRef:
       name: maven
@@ -102,7 +102,7 @@ spec:
     runAfter:
       - code-analysis
       - dependency-report
-      - unit-tests
+#      - unit-tests
     workspaces:
     - name: source
       workspace: workspace
